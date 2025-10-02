@@ -1,65 +1,195 @@
-# ReactNative-Starter-Kit
-Simple base project with cool features and a Foxy theme🦊
+# React Native Foundation Kit
 
-![npm](https://img.shields.io/badge/npm-v6.14.12-green.svg)
-![react](https://img.shields.io/badge/react-v17.0.1-blue.svg)
-![react_native](https://img.shields.io/badge/react_native-v0.64.0-yellow.svg)
-![axios](https://img.shields.io/badge/axios-v0.21.1-orange.svg)
-![react_native_paper](https://img.shields.io/badge/react_native_paper-v4.8.1-brown.svg)
+**Enterprise-Ready Starter Template for React Native Applications**
 
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/43959614/116556725-064b4100-a913-11eb-80b2-effbf9a5950f.png" width="200px">
-</div>
+Version: 3.2.0 | React Native: 0.72.0 | License: MIT
 
-## Visuals
-<div align="center">
-  
-  <img src="./photo/redFoxy.gif" width="22%">
-  <img src="./photo/home-white.jpg" width="22%">
-  <img src="./photo/profile-black.jpg" width="22%">
-  <img src="./photo/drawer.png" width="22%">
-  
-</div>
+## Overview
 
-## Features
+React Native Foundation Kit is a comprehensive starter template designed to accelerate your mobile app development. This production-ready foundation includes essential features, best practices, and scalable architecture patterns to kickstart your next React Native project.
 
-- Well-designed clean file structure
-- React native paper for UI
-- Dark theme compatibility
-- Multi-language (default English, Persian. you can add more)
-- Multi font support
-- Image picking/selecting support
-- React Navigation V5 (stack, drawer, bottom and switch navigations)
-- Splash screen
+## Quick Start
 
-## Getting Started
-
-#### 1. Clone and Install
+### Installation & Setup
 
 ```bash
-# Clone the repo
+# Clone the repository
+git clone https://github.com/codexoy/react-native-foundation.git
+cd react-native-foundation
 
-git clone https://github.com/salehafzoon/ReactNative-Starter-Kit.git
-
-# Navigate to clonned folder and rename project
-
-cd ReactNative-Starter-Kit && npx react-native-rename <newName>
-
-# Install dependencies by use of **yarn** or **npm**
-
+# Install dependencies
 yarn install
-# or
-npm install
+
+# iOS setup
+cd ios && pod install && cd ..
+
+# Rename project (optional)
+npx react-native-rename "YourAppName"
+
+# Start development
+yarn start
 ```
 
-#### 2 Start it on an Android simulator
+### Platform-Specific Launch
 
-Run this command in the main directory to start your app on an Android simulator:
+```bash
+# Android
+yarn android
+
+# iOS
+yarn ios
+
+# Both platforms
+yarn mobile
 ```
-react-native run-android
+
+## Project Architecture
+
+```
+src/
+├── components/          # Reusable UI components
+├── screens/            # App screens and pages
+├── navigation/         # Routing configuration
+├── store/              # State management
+├── services/           # API and external services
+├── utils/              # Helper functions
+├── constants/          # App constants and configs
+├── assets/             # Images, fonts, icons
+├── themes/             # Design system and styling
+└── locales/            # Internationalization files
 ```
 
+## Core Features
 
-## Contributing
+### Built-In Functionality
+- Modern Navigation: React Navigation v6 with stack, drawer, and bottom tabs
+- UI Framework: React Native Paper with Material Design components
+- Theming System: Light/Dark theme support with easy customization
+- Multi-Language: i18n support with English and Persian (easily extendable)
+- Typography: Custom font system with multiple weight support
+- Image Management: Advanced image picking and optimization
+- Splash Screen: Customizable launch screen
 
-Pull requests are welcome. ```npm run test``` and ```npm run lint``` before push.
+### Developer Experience
+- TypeScript Ready: Full type safety configuration
+- Code Quality: ESLint, Prettier, and pre-commit hooks
+- Testing Setup: Jest and React Native Testing Library
+- Debugging Tools: Reactotron and Flipper integration
+- VS Code Config: Optimized editor settings
+
+## Design System
+
+### Theme Configuration
+```javascript
+const theme = {
+  colors: {
+    primary: '#6366F1',
+    secondary: '#EC4899',
+    background: '#FFFFFF',
+    surface: '#F8FAFC',
+    error: '#EF4444',
+    text: '#1F2937',
+  },
+  spacing: {
+    xs: 4,
+    sm: 8,
+    md: 16,
+    lg: 24,
+    xl: 32,
+  },
+  typography: {
+    fontFamily: {
+      regular: 'Inter-Regular',
+      medium: 'Inter-Medium',
+      bold: 'Inter-Bold',
+    }
+  }
+}
+```
+
+## Configuration
+
+### Environment Setup
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Configure environment variables
+API_URL=https://api.yourservice.com
+APP_ENV=development
+```
+
+### Customization Guide
+1. Update app name in app.json and package.json
+2. Modify theme colors in src/themes/
+3. Add your brand assets to src/assets/
+4. Configure navigation structure in src/navigation/
+5. Set up API endpoints in src/services/
+
+## Available Scripts
+
+```bash
+# Development
+yarn start          # Start Metro bundler
+yarn android        # Run on Android
+yarn ios            # Run on iOS
+
+# Testing
+yarn test           # Run unit tests
+yarn test:watch     # Run tests in watch mode
+yarn lint           # Run ESLint
+yarn type-check     # Run TypeScript compiler
+
+# Building
+yarn build:android  # Build Android APK
+yarn build:ios      # Build iOS archive
+```
+
+## Testing & Quality
+
+### Test Structure
+```bash
+# Unit tests
+yarn test
+
+# Coverage report
+yarn test:coverage
+
+# E2E tests (if configured)
+yarn test:e2e
+```
+
+### Code Quality Tools
+- ESLint: JavaScript/TypeScript linting
+- Prettier: Code formatting
+- Husky: Git hooks for pre-commit validation
+- Commitlint: Conventional commit messages
+
+## Internationalization
+
+Add new languages easily:
+```javascript
+// src/locales/spanish.json
+{
+  "welcome": "Bienvenido",
+  "login": "Iniciar Sesión"
+}
+```
+
+## Deployment
+
+### Android
+```bash
+# Generate release APK
+cd android && ./gradlew assembleRelease
+
+# Or bundle for Play Store
+./gradlew bundleRelease
+```
+
+### iOS
+```bash
+# Archive for App Store
+cd ios && xcodebuild -workspace App.xcworkspace -scheme App -configuration Release archive
+```
+
